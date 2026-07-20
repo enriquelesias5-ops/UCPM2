@@ -3,8 +3,6 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <!-- Google AdSense -->
-    <meta name="google-adsense-account" content="ca-pub-1444529930367815">
     <title>About Us | UTeM Confessions</title>
     <link rel="stylesheet" href="style.css">
     <style>
@@ -22,7 +20,8 @@
         }
     </style>
 
-
+    <!-- Google AdSense -->
+    <meta name="google-adsense-account" content="ca-pub-1444529930367815">
 </head>
 <body>
 
@@ -108,22 +107,23 @@
             </ul>
 
             <div class="sidebar-footer">
-                <!-- Language Switcher -->
-                <div class="theme-switch-wrapper">
-                    <span class="theme-switch-label" id="langSwitchLabel">Language</span>
-                    <button class="btn btn-secondary btn-sm lang-toggle-btn" id="desktopLangToggle" style="padding: 4px 8px; font-size: 11px; font-weight: 700; border-color: var(--border-color); color: var(--accent-gold);">
-                        Bahasa Melayu
-                    </button>
-                </div>
             </div>
         </aside>
 
         <!-- Main Content Area -->
         <main class="main-content">
-            <a href="index.html" class="back-link">
-                <svg viewBox="0 0 24 24" width="20" height="20" fill="currentColor"><path d="M20 11H7.83l5.59-5.59L12 4l-8 8 8 8 1.41-1.41L7.83 13H20v-2z"/></svg>
-                Back to Dashboard
-            </a>
+            <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 24px; flex-wrap: wrap; gap: 12px;">
+                <a href="index.html" class="back-link" style="margin-bottom: 0;">
+                    <svg viewBox="0 0 24 24" width="20" height="20" fill="currentColor"><path d="M20 11H7.83l5.59-5.59L12 4l-8 8 8 8 1.41-1.41L7.83 13H20v-2z"/></svg>
+                    Back to Dashboard
+                </a>
+                <div style="display: flex; align-items: center; gap: 8px;">
+                    <span class="theme-switch-label" id="langSwitchLabel">Language</span>
+                    <button class="btn btn-secondary btn-sm lang-toggle-btn" id="desktopLangToggle" style="padding: 6px 14px; font-size: 12px; font-weight: 700; border-color: var(--border-color); color: var(--accent-gold);">
+                        Bahasa Melayu
+                    </button>
+                </div>
+            </div>
 
             <div class="card content-card">
                 <h2 class="card-title">
@@ -148,6 +148,7 @@
                     <a href="about.html">About Us</a>
                     <a href="rules.html">Confession Rules</a>
                     <a href="privacy.html">Privacy Policy</a>
+                    <a href="terms.html">Terms of Service</a>
                 </div>
             </footer>
         </main>
@@ -184,6 +185,7 @@
                 footer_about: "About Us",
                 footer_rules: "Confession Rules",
                 footer_privacy: "Privacy Policy",
+                footer_terms: "Terms of Service",
                 lang_label: "Language"
             },
             ms: {
@@ -199,6 +201,7 @@
                 footer_about: "Tentang Kami",
                 footer_rules: "Peraturan Pengakuan",
                 footer_privacy: "Dasar Privasi",
+                footer_terms: "Syarat Perkhidmatan",
                 lang_label: "Bahasa"
             }
         };
@@ -239,7 +242,12 @@
                 footerDiv.innerHTML = `<strong>UTeM Confessions</strong> &copy; 2026. ${t.footer_text}`;
             }
             const footerLinks = document.querySelectorAll(".footer-links a");
-            if (footerLinks.length >= 3) {
+            if (footerLinks.length >= 4) {
+                footerLinks[0].textContent = t.footer_about;
+                footerLinks[1].textContent = t.footer_rules;
+                footerLinks[2].textContent = t.footer_privacy;
+                footerLinks[3].textContent = t.footer_terms;
+            } else if (footerLinks.length >= 3) {
                 footerLinks[0].textContent = t.footer_about;
                 footerLinks[1].textContent = t.footer_rules;
                 footerLinks[2].textContent = t.footer_privacy;

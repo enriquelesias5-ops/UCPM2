@@ -154,6 +154,7 @@ const translations = {
         footer_about: "About Us",
         footer_rules: "Confession Rules",
         footer_privacy: "Privacy Policy",
+        footer_terms: "Terms of Service",
 
         theme_label_dark: "Dark Theme",
         theme_label_light: "Light Theme",
@@ -335,6 +336,7 @@ const translations = {
         footer_about: "Tentang Kami",
         footer_rules: "Peraturan Pengakuan",
         footer_privacy: "Dasar Privasi",
+        footer_terms: "Syarat Perkhidmatan",
 
         theme_label_dark: "Tema Gelap",
         theme_label_light: "Tema Terang",
@@ -777,7 +779,12 @@ function setLanguage(lang) {
         footerDiv.innerHTML = `<strong>UTeM Confessions</strong> &copy; 2026. ${t.footer_text}`;
     }
     const footerLinks = document.querySelectorAll(".footer-links a");
-    if (footerLinks.length >= 3) {
+    if (footerLinks.length >= 4) {
+        footerLinks[0].textContent = t.footer_about;
+        footerLinks[1].textContent = t.footer_rules;
+        footerLinks[2].textContent = t.footer_privacy;
+        footerLinks[3].textContent = t.footer_terms;
+    } else if (footerLinks.length >= 3) {
         footerLinks[0].textContent = t.footer_about;
         footerLinks[1].textContent = t.footer_rules;
         footerLinks[2].textContent = t.footer_privacy;
